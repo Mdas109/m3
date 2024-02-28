@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live TV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .search-input {
+            padding: 8px;
+            margin-right: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            background-color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .channel {
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .channel img {
+            max-width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .corner-symbol {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Live TV</h1>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+        <button class="search-button" onclick="handleSearch()">Search</button>
+    </header>
+
+    <main>
+        <div class="channel" data-name="Anas">
+            <a href="suntv.html">
+                <h2>Sun tv</h2>
+                <img src="channel1.jpg" alt="sun tv">
+                <p>Anas</p>
+            </a>
+        </div>
+
+        <div class="channel" data-name="Sports 18 HD khel">
+            <a href="Sp18khel.html">
+                <h2>Sports 18 HD</h2>
+                <img src="channel2.jpg" alt="Channel 2">
+                <p>sp18 khel</p>
+            </a>
+        </div>
+        
+
+        <div class="channel" data-name="Sports 18 HD >
+            <a href="Sp18.html">
+                <h2>Sports 18 HD</h2>
+                <img src="sp18.jpg" alt="Channel 2">
+                <p>Sp18</p>
+            </a>
+        </div>
+
+        <!-- Add more channels as needed -->
+
+    </main>
+
+    <script>
+        function handleSearch() {
+            var input = document.getElementById("searchInput").value.toLowerCase();
+            var channels = document.querySelectorAll('.channel');
+
+            channels.forEach(function(channel) {
+                var channelName = channel.getAttribute('data-name').toLowerCase();
+                var channelDisplay = channelName.includes(input) ? 'block' : 'none';
+                channel.style.display = channelDisplay;
+            });
+        }
+    </script>
+</body>
+</html>
